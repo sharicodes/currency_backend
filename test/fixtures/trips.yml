@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip_name: MyString
+  currency_one: MyString
+  currency_two: MyString
+  currency_three: MyString
+
+two:
+  trip_name: MyString
+  currency_one: MyString
+  currency_two: MyString
+  currency_three: MyString
