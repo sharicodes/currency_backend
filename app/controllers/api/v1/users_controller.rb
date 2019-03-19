@@ -4,6 +4,12 @@ class Api::V1::UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
+
+  def create
+    user = User.create(user_param)
+    render json: user
+  end
+
   def show
     @user = User.find(params[:id])
     render json: @user_params
@@ -17,12 +23,18 @@ class Api::V1::UsersController < ApplicationController
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
     end
   end
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    head :no_content, status: :ok
+  end
 
   private
 
   def user_params
-    params.permit(:first_name,:last_name, :email)
+    params.permit(:first_name, :last_name, :email)
   end
-
-
+  def find_user
+   @user = User.find(params[:id])
+ end
 end
