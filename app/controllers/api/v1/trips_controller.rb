@@ -1,5 +1,5 @@
 class Api::V1::TripsController < ApplicationController
-  before_action :find_trip, only: [:update]
+  
   def index
     @trips = Trip.all
     render json: @trips
